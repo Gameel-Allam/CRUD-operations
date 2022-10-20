@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../styles/main.css"
 import OperationsBtns from './OperationsBtns'
+import { useDispatch, useSelector } from 'react-redux';
+import { GetAPi } from '../Redux/GetSlice';
 const Users = () => {
+  // data of all users
+  let DataOfUsers=useSelector(state=>state.usersData.allUsers)
+  console.log(DataOfUsers)
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(GetAPi())
+  },[dispatch])
   return (
-              <>
-                <table className="table my-4">
+<>
+ <table className="table my-4">
   <thead>
     <tr>
       <th scope="col">Id</th>

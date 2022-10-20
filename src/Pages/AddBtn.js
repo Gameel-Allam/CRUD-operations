@@ -5,7 +5,7 @@ const AddBtn = () => {
   return (
     <>
         <div className='Add__oper my-4'>
-            <button className="ADd__btn"><span className='text'>Add</span><span className="icon">
+            <button className="Add__btn"><span className='text'>Add</span><span className="icon">
                 <FontAwesomeIcon icon={faPlus}/>
                 </span>
                 </button>
@@ -14,4 +14,4 @@ const AddBtn = () => {
   )
 }
 
-export default AddBtn
+export default React.memo(AddBtn)

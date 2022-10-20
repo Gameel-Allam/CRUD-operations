@@ -17,4 +17,4 @@ const OperationsBtns = () => {
   )
 }
 
-export default OperationsBtns
+export default React.memo(OperationsBtns)

@@ -1444,7 +1444,7 @@ a.btn-icon-only {
 }
 .del__oper button .icon {
   position: absolute;
-  border-left: 1px solid #c41b1b;
+  border-left: 1px solid #dfd5d5;
   transform: translateX(110px);
   height: 40px;
   width: 40px;
@@ -1457,7 +1457,7 @@ a.btn-icon-only {
   fill: #eee;
 }
 .del__oper button:hover {
-  background: #ff3636;
+  background: #9c0e0e;
 }
 .del__oper button:hover .text {
   color: transparent;
