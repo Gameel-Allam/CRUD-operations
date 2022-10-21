@@ -15,15 +15,15 @@ function App() {
   return (
     <div className="App">
       <div className='container'>
-       {/* <Users/> */}
-       <Routes>
-        <Route path='/' element={<Admin><Users/></Admin>}/>
-          <Route path='/login' element={<Protected><Login/></Protected>}/>
-          <Route path='/register' element={<Protected><Register/></Protected>}/>
-          <Route path='/resetPasseord' element={<Protected><ForgetPass/></Protected>}/>
-          <Route path='/changePassword' element={<Protected><ChangePass/></Protected>}/>
-        <Route path='*' element={<NotFound/>}/>
-       </Routes>
+        {/* <Users/> */}
+        <Routes>
+          <Route path='/' element={<Admin><Users /></Admin>} />
+          <Route path='/login' element={<Protected><Login /></Protected>} />
+          <Route path='/register' element={<Protected><Register /></Protected>} />
+          <Route path='/resetPasseord' element={<Protected><ForgetPass /></Protected>} />
+          <Route path='/changePassword' element={<Protected><ChangePass /></Protected>} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </div>
     </div>
   );
