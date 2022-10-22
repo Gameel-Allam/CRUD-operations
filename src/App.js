@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles/App.css'
 import Users from './Pages/Users';
-import AddBtn from './Pages/Components/AddBtn';
 import { Route, Routes } from 'react-router-dom';
 import { Login } from './Pages/registeration/login';
 import Register from './Pages/registeration/Regeister'
@@ -10,6 +9,8 @@ import ChangePass from './Pages/registeration/ChangePass';
 import Protected from './Pages/protectRoutes/Protected';
 import NotFound from './Pages/NotFound';
 import Admin from './Pages/protectRoutes/Admin';
+import Dashboard from './Pages/Dashboard';
+import Singleuser from './Pages/SingleUser';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
       <div className='container'>
         {/* <Users/> */}
         <Routes>
-          <Route path='/' element={<Admin><Users /></Admin>} />
+          <Route path='/' element={<Admin><Dashboard/></Admin>}/>
+          <Route path='/users' element={<Admin><Users /></Admin>} />
+          <Route path='/users/:userId' element={<Singleuser/>}/>
           <Route path='/login' element={<Protected><Login /></Protected>} />
           <Route path='/register' element={<Protected><Register /></Protected>} />
           <Route path='/resetPasseord' element={<Protected><ForgetPass /></Protected>} />

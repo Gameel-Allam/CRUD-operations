@@ -1,8 +1,9 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPenSquare, faTrash,faUser } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert'
 import EditingDialog from './editingUser'
+import {useNavigate } from 'react-router-dom'
 
 const OperationsBtns = (currentUser) => {
 
@@ -34,6 +35,10 @@ const OperationsBtns = (currentUser) => {
         }
       });
   }
+  const router=useNavigate()
+  const handleClickView=(id)=>{
+    router(`/users/${id}`)
+  }
   return (
     <div className='d-flex flex-row justify-center align-center'>
       <div className='del__oper'>
@@ -42,6 +47,12 @@ const OperationsBtns = (currentUser) => {
       <div className='Edit__oper mx-2'>
         <button className="Edit__btn" onClick={handleClickOpen}><span className='text'>Edit</span><span className="icon">
           <FontAwesomeIcon icon={faPenSquare} />
+        </span>
+        </button>
+      </div>
+      <div className='View__oper mx-2'>
+        <button className="View__btn" onClick={()=>handleClickView(currentUser.currentUser.id)}><span className='text'>View</span><span className="icon">
+          <FontAwesomeIcon icon={faUser} />
         </span>
         </button>
       </div>

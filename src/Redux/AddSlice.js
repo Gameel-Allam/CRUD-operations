@@ -12,6 +12,7 @@ export const AddAPi=createAsyncThunk('users/CreateUser',async(data)=>{
             },
             data : data
           }
+          
     )
     return res.data
 })

@@ -20,7 +20,7 @@ const Users = () => {
   return (
     <>
       <AddBtn />
-      <table className="table my-4">
+      <table className="table my-4 table-striped table-dark">
         <thead>
           <tr>
             <th scope="col">Id</th>

@@ -1289,18 +1289,19 @@ a.btn-icon-only {
   -webkit-tap-highlight-color: transparent;
 }
 .del__oper button {
-  width: 150px;
+  width: 6.8rem;
   height: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
   background: red;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
   background: #e62222;
 }
-.del__oper button, .del__oper button span {
+.del__oper button,
+.del__oper button span {
   transition: 200ms;
 }
 .del__oper button .text {
@@ -1311,9 +1312,9 @@ a.btn-icon-only {
 .del__oper button .icon {
   position: absolute;
   border-left: 1px solid #dfd5d5;
-  transform: translateX(110px);
+  transform: translateX(79px);
   height: 40px;
-  width: 40px;
+  width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1331,7 +1332,7 @@ a.btn-icon-only {
 .del__oper button:hover .icon {
   width: 150px;
   border-left: none;
-  transform: translateX(0);
+  transform: translateX(-20px);
 }
 .del__oper button:focus {
   outline: none;
@@ -1347,18 +1348,19 @@ a.btn-icon-only {
   -webkit-tap-highlight-color: transparent;
 }
 .Edit__oper button {
-  width: 150px;
+  width: 6.8rem;
   height: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
   background: rgb(204, 186, 98);
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
   background: rgb(204, 186, 98);
 }
-.Edit__oper button, .Edit__oper button span {
+.Edit__oper button,
+.Edit__oper button span {
   transition: 200ms;
 }
 .Edit__oper button .text {
@@ -1369,9 +1371,9 @@ a.btn-icon-only {
 .Edit__oper button .icon {
   position: absolute;
   border-left: 1px solid rgb(239, 221, 127);
-  transform: translateX(110px);
+  transform: translateX(79px);
   height: 40px;
-  width: 40px;
+  width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1389,7 +1391,7 @@ a.btn-icon-only {
 .Edit__oper button:hover .icon {
   width: 150px;
   border-left: none;
-  transform: translateX(0);
+  transform: translateX(-20px);
 }
 .Edit__oper button:focus {
   outline: none;
@@ -1407,18 +1409,19 @@ a.btn-icon-only {
 .Add__oper button {
   margin-left: auto;
   color: white;
-  width: 150px;
+  width: 8rem;
   height: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
   background: #5e72e4;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
   background: #5e72e4;
 }
-.Add__oper button, .Add__oper button span {
+.Add__oper button,
+.Add__oper button span {
   transition: 200ms;
 }
 .Add__oper button .text {
@@ -1429,9 +1432,9 @@ a.btn-icon-only {
 .Add__oper button .icon {
   position: absolute;
   border-left: 1px solid rgb(239, 221, 127);
-  transform: translateX(110px);
+  transform: translateX(94px);
   height: 40px;
-  width: 40px;
+  width: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1445,12 +1448,72 @@ a.btn-icon-only {
 .Add__oper button:hover .icon {
   width: 150px;
   border-left: none;
-  transform: translateX(0);
+  transform: translateX(-13px);
 }
 .Add__oper button:focus {
   outline: none;
 }
 
-.table th, .table td {
+.View__oper .View__btn {
+  color: white;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.View__oper button {
+  width: 6.8rem;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: rgb(50, 180, 76);
+  border: none;
+  border-radius: 0px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: rgb(50, 180, 76);
+}
+.View__oper button,
+.View__oper button span {
+  transition: 200ms;
+}
+.View__oper button .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+}
+.View__oper button .icon {
+  position: absolute;
+  border-left: 1px solid rgb(239, 221, 127);
+  transform: translateX(79px);
+  height: 40px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.View__oper button svg {
+  width: 15px;
+  fill: #eee;
+}
+.View__oper button:hover {
+  background: rgb(21, 121, 41);
+}
+.View__oper button:hover .text {
+  color: transparent;
+}
+.View__oper button:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(-20px);
+}
+.View__oper button:focus {
+  outline: none;
+}
+
+.table th,
+.table td {
   vertical-align: middle !important;
 }/*# sourceMappingURL=main.css.map */

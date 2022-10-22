@@ -22,7 +22,7 @@ const AddBtn = () => {
   return (
     <>
       <div className='Add__oper my-4'>
-        <button className="Add__btn" onClick={handleClickOpen}><span className='text'>Add</span><span className="icon">
+        <button className="Add__btn md:ml-auto" onClick={handleClickOpen}><span className='text'>Add</span><span className="icon">
           <FontAwesomeIcon icon={faPlus} />
         </span>
         </button>
