@@ -16,7 +16,7 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
         setNewUSer({ ...newUser, [id]: value });
     }
     const onSubmit = (e) => {
-        if (newUser.fullName === "" || newUser.DOB === "" || newUser.phone === "" || newUser.eMail === "")
+        if (newUser.fullName === "" || newUser.age === undefined || newUser.phone === "" || newUser.eMail === "")
             e.preventDefault();
         else {
             console.log(newUser);
@@ -41,8 +41,7 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
                         </Grid>
                     </DialogTitle>
                 </Paper>
-                <Grid align="center">
-                    <form style={{ width: "80%", marginBottom: "10px" }}>
+                    <form style={{ padding: "10px 100px" }}>
                         <DialogContent>
                             <TextField
                                 id="userName"
@@ -74,23 +73,27 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
                                 defaultValue={newUser.phone}
                                 onChange={e => onChange(e)}
                             />
-                            <TextField
-                                id="DOB"
-                                placeholder="Enter your Date of Birth"
-                                label="Date of Birth"
-                                variant="standard"
-                                margin="normal"
-                                fullWidth
-                                defaultValue={newUser.DOB}
-                                onChange={e => onChange(e)}
-                            />
+                            <Grid container>
+                                <Grid item xs={6}>
+                                    <TextField
+                                        id="age"
+                                        placeholder="Enter your age"
+                                        label="Age"
+                                        type="number"
+                                        variant="standard"
+                                        margin="normal"
+                                        fullWidth
+                                        defaultValue={newUser.age}
+                                        onChange={e => onChange(e)}
+                                    />
+                                </Grid>
+                            </Grid>
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleClose} variant="outlined">Cancel</Button>
                             <Button variant="contained" onClick={(e) => onSubmit(e)}>Confirm</Button>
                         </DialogActions>
                     </form>
-                </Grid>
             </Dialog>
         </div>
     );
