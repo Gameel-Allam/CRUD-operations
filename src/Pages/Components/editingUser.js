@@ -16,9 +16,10 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
         setNewUSer({ ...newUser, [id]: value });
     }
     const onSubmit = (e) => {
-        if (newUser.fullName === "" || newUser.age === undefined || newUser.phone === "" || newUser.eMail === "")
+        if (newUser.fullName === "" || newUser.age === (undefined || "" || '') || newUser.phone === "" || newUser.eMail === "")
             e.preventDefault();
         else {
+            // the data of user after edit
             console.log(newUser);
             handleClose();
         }
@@ -41,59 +42,59 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
                         </Grid>
                     </DialogTitle>
                 </Paper>
-                    <form style={{ padding: "10px 100px" }}>
-                        <DialogContent>
-                            <TextField
-                                id="userName"
-                                placeholder="Enter your name"
-                                label="Full-Name"
-                                variant="standard"
-                                margin="normal"
-                                fullWidth
-                                defaultValue={newUser.userName}
-                                onChange={e => onChange(e)}
-                            />
-                            <TextField
-                                id="eMail"
-                                placeholder="Enter your eMail"
-                                label="E-mail"
-                                variant="standard"
-                                margin="normal"
-                                fullWidth
-                                defaultValue={newUser.eMail}
-                                onChange={e => onChange(e)}
-                            />
-                            <TextField
-                                id="phone"
-                                placeholder="Enter your phone"
-                                label="Phone"
-                                variant="standard"
-                                margin="normal"
-                                fullWidth
-                                defaultValue={newUser.phone}
-                                onChange={e => onChange(e)}
-                            />
-                            <Grid container>
-                                <Grid item xs={6}>
-                                    <TextField
-                                        id="age"
-                                        placeholder="Enter your age"
-                                        label="Age"
-                                        type="number"
-                                        variant="standard"
-                                        margin="normal"
-                                        fullWidth
-                                        defaultValue={newUser.age}
-                                        onChange={e => onChange(e)}
-                                    />
-                                </Grid>
+                <form style={{ padding: "10px 100px" }}>
+                    <DialogContent>
+                        <TextField
+                            id="userName"
+                            placeholder="Enter your name"
+                            label="Full-Name"
+                            variant="standard"
+                            margin="normal"
+                            fullWidth
+                            defaultValue={newUser.userName}
+                            onChange={e => onChange(e)}
+                        />
+                        <TextField
+                            id="eMail"
+                            placeholder="Enter your eMail"
+                            label="E-mail"
+                            variant="standard"
+                            margin="normal"
+                            fullWidth
+                            defaultValue={newUser.eMail}
+                            onChange={e => onChange(e)}
+                        />
+                        <TextField
+                            id="phone"
+                            placeholder="Enter your phone"
+                            label="Phone"
+                            variant="standard"
+                            margin="normal"
+                            fullWidth
+                            defaultValue={newUser.phone}
+                            onChange={e => onChange(e)}
+                        />
+                        <Grid container>
+                            <Grid item xs={6}>
+                                <TextField
+                                    id="age"
+                                    placeholder="Enter your age"
+                                    label="Age"
+                                    type="number"
+                                    variant="standard"
+                                    margin="normal"
+                                    fullWidth
+                                    defaultValue={newUser.age}
+                                    onChange={e => onChange(e)}
+                                />
                             </Grid>
-                        </DialogContent>
-                        <DialogActions>
-                            <Button onClick={handleClose} variant="outlined">Cancel</Button>
-                            <Button variant="contained" onClick={(e) => onSubmit(e)}>Confirm</Button>
-                        </DialogActions>
-                    </form>
+                        </Grid>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose} variant="outlined">Cancel</Button>
+                        <Button variant="contained" onClick={(e) => onSubmit(e)}>Confirm</Button>
+                    </DialogActions>
+                </form>
             </Dialog>
         </div>
     );

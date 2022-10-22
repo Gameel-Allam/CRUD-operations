@@ -12,9 +12,10 @@ import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 export default function AddingDialog({ openDialog, handleClose, data, onChange }) {
     const onSubmit = (e) => {
-        if (data.fullName === "" || data.age === undefined || data.phone === "" || data.eMail === "")
+        if (data.fullName === "" || data.age === (undefined || "" || '') || data.phone === "" || data.eMail === "")
             e.preventDefault();
         else {
+            // data of new user
             console.log(data);
             data.fullName = "";
             data.age = undefined;

@@ -34,8 +34,8 @@ const Users = () => {
         <tbody>
           {tempData.map((item) => (
             <tr key={item.id}>
-              {Object.values(item).map((val) => (
-                <td>{val}</td>
+              {Object.values(item).map((val,index) => (
+                <td key={index}>{val}</td>
               ))}
               <td><OperationsBtns currentUser={item}/></td>
             </tr>))}

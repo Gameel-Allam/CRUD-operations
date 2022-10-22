@@ -7,15 +7,16 @@ import EditingDialog from './editingUser'
 const OperationsBtns = (currentUser) => {
 
   const [openDialog, setOpenDialog] = React.useState(false);
-  
+
   const handleClickOpen = () => {
     setOpenDialog(true);
   };
-  
+
   const handleClose = () => {
     setOpenDialog(false);
   };
-  function confirmDelete() {
+  function confirmDelete(id) {
+    console.log(id);
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover user!",
@@ -36,7 +37,7 @@ const OperationsBtns = (currentUser) => {
   return (
     <div className='d-flex flex-row justify-center align-center'>
       <div className='del__oper'>
-        <button className="Delete__btn" onClick={confirmDelete}><span className='text'>Delete</span><span className="icon"><FontAwesomeIcon icon={faTrash} /></span></button>
+        <button className="Delete__btn" onClick={() => { confirmDelete(currentUser.currentUser.id); }}><span className='text'>Delete</span><span className="icon"><FontAwesomeIcon icon={faTrash} /></span></button>
       </div>
       <div className='Edit__oper mx-2'>
         <button className="Edit__btn" onClick={handleClickOpen}><span className='text'>Edit</span><span className="icon">
@@ -44,7 +45,7 @@ const OperationsBtns = (currentUser) => {
         </span>
         </button>
       </div>
-      <EditingDialog openDialog={openDialog} handleClose={handleClose} userData={currentUser.currentUser}/>
+      <EditingDialog openDialog={openDialog} handleClose={handleClose} userData={currentUser.currentUser} />
     </div>
   )
 }
