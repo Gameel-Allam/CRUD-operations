@@ -3,11 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import AddingDialog from './creatingUser';
 const AddBtn = () => {
-  const [newUser, setNewUser] = React.useState({ fullName: null,eMail:null, phone: null, DOB: null });
+  const [newUser, setNewUser] = React.useState({ fullName: "",eMail:"", phone: "", DOB: "" });
 
   const onChange = (e) => {
     const { value, id } = e.target;
-    console.log(value, id);
     setNewUser({ ...newUser, [id]: value });
   }
 

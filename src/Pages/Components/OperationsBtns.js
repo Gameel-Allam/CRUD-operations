@@ -2,9 +2,19 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert'
+import EditingDialog from './editingUser'
 
-const OperationsBtns = () => {
+const OperationsBtns = (currentUser) => {
 
+  const [openDialog, setOpenDialog] = React.useState(false);
+  
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
+  
+  const handleClose = () => {
+    setOpenDialog(false);
+  };
   function confirmDelete() {
     swal({
       title: "Are you sure?",
@@ -29,11 +39,12 @@ const OperationsBtns = () => {
         <button className="Delete__btn" onClick={confirmDelete}><span className='text'>Delete</span><span className="icon"><FontAwesomeIcon icon={faTrash} /></span></button>
       </div>
       <div className='Edit__oper mx-2'>
-        <button className="Edit__btn"><span className='text'>Edit</span><span className="icon">
+        <button className="Edit__btn" onClick={handleClickOpen}><span className='text'>Edit</span><span className="icon">
           <FontAwesomeIcon icon={faPenSquare} />
         </span>
         </button>
       </div>
+      <EditingDialog openDialog={openDialog} handleClose={handleClose} userData={currentUser.currentUser}/>
     </div>
   )
 }

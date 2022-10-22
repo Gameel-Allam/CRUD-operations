@@ -37,7 +37,7 @@ const Users = () => {
               {Object.values(item).map((val) => (
                 <td>{val}</td>
               ))}
-              <td><OperationsBtns /></td>
+              <td><OperationsBtns currentUser={item}/></td>
             </tr>))}
         </tbody>
       </table>

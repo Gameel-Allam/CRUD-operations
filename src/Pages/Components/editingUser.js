@@ -7,24 +7,24 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { TextField } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import EditIcon from '@mui/icons-material/Edit';
 
-
-
-export default function AddingDialog({ openDialog, handleClose, data, onChange }) {
+export default function EditingDialog({ openDialog, handleClose, userData }) {
+    const [newUser, setNewUSer] = React.useState(userData);
+    const onChange = (e) => {
+        const { value, id } = e.target;
+        setNewUSer({ ...newUser, [id]: value });
+    }
     const onSubmit = (e) => {
-        if (data.fullName === "" || data.DOB === "" || data.phone === "" || data.eMail === "")
+        if (newUser.fullName === "" || newUser.DOB === "" || newUser.phone === "" || newUser.eMail === "")
             e.preventDefault();
         else {
-            console.log(data);  
-            data.fullName = "";
-            data.DOB = "";
-            data.phone = "";
-            data.eMail = "";
+            console.log(newUser);
             handleClose();
         }
 
     }
+
     return (
         <div>
             <Dialog
@@ -33,13 +33,11 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-
                 <Paper elevation={5}>
                     <DialogTitle id="alert-dialog-title">
                         <Grid align="center">
-
-                            <PersonAddAltIcon />
-                            <h2>Creating new user</h2>
+                            <EditIcon />
+                            <h2>Editing Current user</h2>
                         </Grid>
                     </DialogTitle>
                 </Paper>
@@ -47,13 +45,13 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                     <form style={{ width: "80%", marginBottom: "10px" }}>
                         <DialogContent>
                             <TextField
-                                id="fullName"
+                                id="userName"
                                 placeholder="Enter your name"
-                                label="name"
+                                label="Full-Name"
                                 variant="standard"
                                 margin="normal"
                                 fullWidth
-                                defaultValue={data.fullName}
+                                defaultValue={newUser.userName}
                                 onChange={e => onChange(e)}
                             />
                             <TextField
@@ -63,7 +61,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                                 variant="standard"
                                 margin="normal"
                                 fullWidth
-                                defaultValue={data.eMail}
+                                defaultValue={newUser.eMail}
                                 onChange={e => onChange(e)}
                             />
                             <TextField
@@ -73,7 +71,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                                 variant="standard"
                                 margin="normal"
                                 fullWidth
-                                defaultValue={data.phone}
+                                defaultValue={newUser.phone}
                                 onChange={e => onChange(e)}
                             />
                             <TextField
@@ -83,17 +81,18 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                                 variant="standard"
                                 margin="normal"
                                 fullWidth
-                                defaultValue={data.DOB}
+                                defaultValue={newUser.DOB}
                                 onChange={e => onChange(e)}
                             />
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleClose} variant="outlined">Cancel</Button>
-                            <Button onClick={(e) => onSubmit(e)} variant="contained">Confirm</Button>
+                            <Button variant="contained" onClick={(e) => onSubmit(e)}>Confirm</Button>
                         </DialogActions>
                     </form>
                 </Grid>
             </Dialog>
-        </div >
+        </div>
     );
 }
+
