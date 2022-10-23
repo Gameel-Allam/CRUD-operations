@@ -42,16 +42,16 @@ const OperationsBtns = (currentUser) => {
   return (
     <div className='d-flex flex-row justify-center align-center'>
       <div className='del__oper'>
-        <button className="Delete__btn" onClick={() => { confirmDelete(currentUser.currentUser.id); }}><span className='text'>Delete</span><span className="icon"><FontAwesomeIcon icon={faTrash} /></span></button>
+        <button className="Delete__btn" onClick={() => { confirmDelete(currentUser.currentUser.id); }}><span className='text'></span><span className="icon"><FontAwesomeIcon icon={faTrash} /></span></button>
       </div>
       <div className='Edit__oper mx-2'>
-        <button className="Edit__btn" onClick={handleClickOpen}><span className='text'>Edit</span><span className="icon">
+        <button className="Edit__btn" onClick={handleClickOpen}><span className='text'></span><span className="icon">
           <FontAwesomeIcon icon={faPenSquare} />
         </span>
         </button>
       </div>
-      <div className='View__oper mx-2'>
-        <button className="View__btn" onClick={()=>handleClickView(currentUser.currentUser.id)}><span className='text'>View</span><span className="icon">
+      <div className='View__oper'>
+        <button className="View__btn" onClick={()=>handleClickView(currentUser.currentUser.id)}><span className='text'></span><span className="icon">
           <FontAwesomeIcon icon={faUser} />
         </span>
         </button>
