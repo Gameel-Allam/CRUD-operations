@@ -20,10 +20,7 @@ export const GetAPi=createAsyncThunk('users/CreateUser',async()=>{
 export const GetSlice=createSlice({
     name:'getData',
     initialState:{
-        allUsers:[{ id: 1, uname: "Ahmed", email: "ali@gmail.com", phone: "01222333444", age: 20 },
-        { id: 2, uname: "Omar", email: "omar@gmail.com", phone: "01222333445", age: 21 },
-        { id: 3, uname: "Mohamed", email: "mohamed@gmail.com", phone: "01222333446", age: 22 },
-        { id: 4, uname: "Kaream", email: "kareem@gmail.com", phone: "01222333447", age: 23 }],
+        allUsers:[],
         loading:false,
         error:true
     },
