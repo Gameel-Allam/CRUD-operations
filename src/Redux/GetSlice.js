@@ -3,18 +3,21 @@ import axios from 'axios';
 // import { AddAPi } from './AddSlice';
 // import { DeleteAPi } from './DeleteSlice';
 // import { UpdataAPi } from './UpdateSlice';
-export const GetAPi=createAsyncThunk('users/CreateUser',async()=>{
+export const GetAPi=createAsyncThunk('/user',async()=>{
     let res=await axios(
         {
             method: 'get',
             url: 'http://localhost:8080/user',
-            // headers: { 
-            //   'Accept': 'application/json', 
-            // //   'Authorization': 'Bearer 200|9t1dGcLeRhiaD15Hkh0UGEEefXKKsFVDccMdX82t', 
-            //   'Content-Type': 'text/plain'
-            // }
-          }
-    )
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }      
+        }    
+     
+     
+        )
+        console.log(res);
     return res.data
 })
 export const GetSlice=createSlice({
@@ -34,6 +37,7 @@ export const GetSlice=createSlice({
         },
         [GetAPi.rejected]:(state)=>{
             state.error=true
+            console.log(`error`)
         }
         // [AddAPi.pending]:(state)=>{
         //     state.loading=true
