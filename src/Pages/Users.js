@@ -8,10 +8,10 @@ const Users = () => {
   // data of all users
   let DataOfUsers = useSelector(state => state.usersData.allUsers)
   console.log(DataOfUsers)
-  // const dispatch=useDispatch()
-  // useEffect(()=>{
-  //   dispatch(GetAPi())
-  // },[dispatch])
+   const dispatch=useDispatch()
+   useEffect(()=>{
+     dispatch(GetAPi())
+   },[dispatch])
   const [tempData, setTempdata] = useState(DataOfUsers)
 
   return (

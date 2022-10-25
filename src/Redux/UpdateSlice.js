@@ -1,15 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
-export const UpdataAPi=createAsyncThunk('users/CreateUser',async(data)=>{
+export const UpdataAPi=createAsyncThunk('/user',async(data)=>{
     console.log(data.email,"from update redux")
     let res=await axios(
         {
             method: 'put',
             url: `http://localhost:8080/user/${data.id}`,
             headers: { 
-              'Accept': 'application/json', 
-              'Authorization': 'Bearer 200|9t1dGcLeRhiaD15Hkh0UGEEefXKKsFVDccMdX82t', 
-              'Content-Type': 'application/json'
+              'Content-Type': 'text/plain'
             },
             data : data.email
           }
