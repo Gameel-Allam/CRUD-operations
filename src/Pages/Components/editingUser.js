@@ -8,18 +8,24 @@ import { TextField } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import EditIcon from '@mui/icons-material/Edit';
+import { useDispatch } from "react-redux";
+import { UpdataAPi } from "../../Redux/UpdateSlice";
+import { json } from "react-router-dom";
 
 export default function EditingDialog({ openDialog, handleClose, userData }) {
+    const dispatch=useDispatch();
     const [newUser, setNewUSer] = React.useState(userData);
     const onChange = (e) => {
         const { value, id } = e.target;
         setNewUSer({ ...newUser, [id]: value });
     }
     const onSubmit = (e) => {
-        if (newUser.fullName === "" || newUser.age === (undefined || "" || '') || newUser.phone === "" || newUser.eMail === "")
+        if (newUser.uname === "" || newUser.age === (undefined || "" || '') || newUser.phone === "" || newUser.email === "")
             e.preventDefault();
         else {
             // the data of user after edit
+            
+            dispatch(UpdataAPi({email:newUser.email,id:newUser.id}));
             console.log(newUser);
             handleClose();
         }
@@ -45,23 +51,23 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
                 <form style={{ padding: "10px 100px" }}>
                     <DialogContent>
                         <TextField
-                            id="userName"
+                            id="uname"
                             placeholder="Enter your name"
                             label="Full-Name"
                             variant="standard"
                             margin="normal"
                             fullWidth
-                            defaultValue={newUser.userName}
+                            defaultValue={newUser.uname}
                             onChange={e => onChange(e)}
                         />
                         <TextField
-                            id="eMail"
+                            id="email"
                             placeholder="Enter your eMail"
                             label="E-mail"
                             variant="standard"
                             margin="normal"
                             fullWidth
-                            defaultValue={newUser.eMail}
+                            defaultValue={newUser.email}
                             onChange={e => onChange(e)}
                         />
                         <TextField

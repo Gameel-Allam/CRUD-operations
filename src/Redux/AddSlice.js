@@ -1,15 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 export const AddAPi=createAsyncThunk('users/CreateUser',async(data)=>{
+    console.log(data,"reached to redux")
     let res=await axios(
         {
             method: 'post',
-            url: 'https://api.adstarks.com/public/api/country_partners',
-            headers: { 
-              'Accept': 'application/json', 
-              'Authorization': 'Bearer 200|9t1dGcLeRhiaD15Hkh0UGEEefXKKsFVDccMdX82t', 
-              'Content-Type': 'application/json'
-            },
+            url: 'http://localhost:8080/user',
+            // headers: { 
+            //   'Accept': 'application/json', 
+            //   'Authorization': 'Bearer 200|9t1dGcLeRhiaD15Hkh0UGEEefXKKsFVDccMdX82t', 
+            //   'Content-Type': 'application/json'
+            // },
             data : data
           }
           

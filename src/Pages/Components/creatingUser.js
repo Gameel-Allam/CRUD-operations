@@ -8,19 +8,24 @@ import { TextField } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import { useDispatch } from "react-redux";
+import { AddAPi } from "../../Redux/AddSlice";
 
 
 export default function AddingDialog({ openDialog, handleClose, data, onChange }) {
+    const dispatch=useDispatch();
+    
     const onSubmit = (e) => {
-        if (data.fullName === "" || data.age === (undefined || "" || '') || data.phone === "" || data.eMail === "")
+        if (data.uname === "" || data.age === (undefined || "" || '') || data.phone === "" || data.email === "")
             e.preventDefault();
         else {
             // data of new user
-            console.log(data);
-            data.fullName = "";
+            dispatch(AddAPi(JSON.stringify(data)))
+            // console.log(data);
+            data.uname = "";
             data.age = undefined;
             data.phone = "";
-            data.eMail = "";
+            data.email = "";
             handleClose();
         }
 
@@ -52,7 +57,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                             variant="standard"
                             margin="normal"
                             fullWidth
-                            defaultValue={data.fullName}
+                            defaultValue={data.uname}
                             onChange={e => onChange(e)}
                         />
                         <TextField
@@ -62,7 +67,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                             variant="standard"
                             margin="normal"
                             fullWidth
-                            defaultValue={data.eMail}
+                            defaultValue={data.email}
                             onChange={e => onChange(e)}
                         />
                         <TextField

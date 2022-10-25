@@ -3,17 +3,16 @@ import axios from 'axios';
 // import { AddAPi } from './AddSlice';
 // import { DeleteAPi } from './DeleteSlice';
 // import { UpdataAPi } from './UpdateSlice';
-export const GetAPi=createAsyncThunk('users/CreateUser',async(data)=>{
+export const GetAPi=createAsyncThunk('users/CreateUser',async()=>{
     let res=await axios(
         {
             method: 'get',
-            url: 'https://jsonplaceholder.typicode.com/users',
-            headers: { 
-              'Accept': 'application/json', 
-            //   'Authorization': 'Bearer 200|9t1dGcLeRhiaD15Hkh0UGEEefXKKsFVDccMdX82t', 
-              'Content-Type': 'text/plain'
-            },
-            data : data
+            url: 'http://localhost:8080/user',
+            // headers: { 
+            //   'Accept': 'application/json', 
+            // //   'Authorization': 'Bearer 200|9t1dGcLeRhiaD15Hkh0UGEEefXKKsFVDccMdX82t', 
+            //   'Content-Type': 'text/plain'
+            // }
           }
     )
     return res.data
@@ -21,7 +20,10 @@ export const GetAPi=createAsyncThunk('users/CreateUser',async(data)=>{
 export const GetSlice=createSlice({
     name:'getData',
     initialState:{
-        allUsers:[],
+        allUsers:[{ id: 1, uname: "Ahmed", email: "ali@gmail.com", phone: "01222333444", age: 20 },
+        { id: 2, uname: "Omar", email: "omar@gmail.com", phone: "01222333445", age: 21 },
+        { id: 3, uname: "Mohamed", email: "mohamed@gmail.com", phone: "01222333446", age: 22 },
+        { id: 4, uname: "Kaream", email: "kareem@gmail.com", phone: "01222333447", age: 23 }],
         loading:false,
         error:true
     },

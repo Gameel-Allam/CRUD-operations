@@ -12,10 +12,7 @@ const Users = () => {
   // useEffect(()=>{
   //   dispatch(GetAPi())
   // },[dispatch])
-  const [tempData, setTempdata] = useState([{ id: 1, userName: "Ahmed", eMail: "ali@gmail.com", phone: "01222333444", age: 20 },
-  { id: 2, userName: "Omar", eMail: "omar@gmail.com", phone: "01222333445", age: 21 },
-  { id: 3, userName: "Mohamed", eMail: "mohamed@gmail.com", phone: "01222333446", age: 22 },
-  { id: 4, userName: "Kaream", eMail: "kareem@gmail.com", phone: "01222333447", age: 23 }])
+  const [tempData, setTempdata] = useState(DataOfUsers)
 
   return (
     <>
@@ -54,8 +51,8 @@ const Users = () => {
                         {tempData.map((item,ind) => (
                           <tr key={ind}>
                             <td>{item.id}</td>
-                            <td>{item.userName}</td>
-                            <td>{item.eMail}</td>
+                            <td>{item.uname}</td>
+                            <td>{item.email}</td>
                             <td>{item.phone}</td>
                             <td>{item.age}</td>
                             <td><OperationsBtns currentUser={item}/></td>

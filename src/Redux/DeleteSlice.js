@@ -1,14 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
-export const DeleteAPi=createAsyncThunk('users/CreateUser',async()=>{
+export const DeleteAPi=createAsyncThunk('users/CreateUser',async(data)=>{
+    console.log(data.id,"delete from redux")
     let res=await axios(
         {
             method: 'delete',
-            url: 'https://api.adstarks.com/public/api/country_partners/68987665-e28e-4cee-8918-2cd130b06261',
-            headers: { 
-              'Accept': 'application/json', 
-              'Authorization': 'Bearer 1|knujpAgz6Qsmc00IxyzXk1ZUV6PKQUOajSaLpSem'
-            }
+            url: `http://localhost:8080/user/${data.id}`,
           }
     )
     return res.data

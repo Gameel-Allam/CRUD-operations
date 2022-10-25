@@ -4,9 +4,11 @@ import { faPenSquare, faTrash,faUser } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert'
 import EditingDialog from './editingUser'
 import {useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { DeleteAPi } from '../../Redux/DeleteSlice'
 
 const OperationsBtns = (currentUser) => {
-
+const dispatch=useDispatch();
   const [openDialog, setOpenDialog] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -17,7 +19,7 @@ const OperationsBtns = (currentUser) => {
     setOpenDialog(false);
   };
   function confirmDelete(id) {
-    console.log(id);
+    dispatch(DeleteAPi({id:id}))
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover user!",
