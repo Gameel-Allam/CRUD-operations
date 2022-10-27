@@ -7,14 +7,17 @@ import AddBtn from './Components/AddBtn';
 const Users = () => {
   // data of all users
   let DataOfUsers = useSelector(state => state.usersData.allUsers)
-  console.log(DataOfUsers)
-   const dispatch=useDispatch()
-   useEffect(()=>{
-     dispatch(GetAPi())
-   },[dispatch])
-  const [tempData, setTempdata] = useState(DataOfUsers)
-
+  let loading = useSelector(state => state.usersData.loading)
+  const dispatch=useDispatch()
+  // const [tempData, setTempdata] = useState()
+  useEffect(()=>{
+    dispatch(GetAPi())
+  },[dispatch])
+  // dispatch(GetAPi())
+console.log("Data from get",DataOfUsers)
   return (
+    <>
+    {loading?"loading":
     <>
       <AddBtn />
       <div className="row">
@@ -48,8 +51,9 @@ const Users = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {tempData.map((item,ind) => (
+                        {DataOfUsers.map((item,ind) => (
                           <tr key={ind}>
+                            {console.log(item.uname,"dsadasd")}
                             <td>{item.id}</td>
                             <td>{item.uname}</td>
                             <td>{item.email}</td>
@@ -65,24 +69,26 @@ const Users = () => {
                         <div className="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries</div>
                         <div className="col-sm-6 col-xs-6">
                             <ul className="pagination hidden-xs pull-right">
-                                <li><a href="google">{`<`}</a></li>
+                            <li><a href="google">{`<`}</a></li>
                                 <li className="active"><a href="asd">1</a></li>
                                 <li><a href="dad">2</a></li>
                                 <li><a href="dasd">3</a></li>
                                 <li><a href="dasd">4</a></li>
                                 <li><a href="dasd">5</a></li>
                                 <li><a href="asd">{`>`}</a></li>
-                            </ul>
-                            <ul className="pagination visible-xs pull-right">
+                                </ul>
+                                <ul className="pagination visible-xs pull-right">
                                 <li><a href="asdad">{`<`}</a></li>
                                 <li><a href="sad">{`>`}</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> */}
+                                </ul>
+                                </div>
+                                </div>
+                              </div> */}
             </div>
         </div>
     </div>
+    </>
+    }
     </>
   )
 }

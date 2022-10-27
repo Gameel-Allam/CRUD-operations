@@ -7,7 +7,7 @@ export const GetAPi=createAsyncThunk('/user',async()=>{
     let res=await axios(
         {
             method: 'get',
-            url: 'http://localhost:8080/user',
+            url: 'https://api.npoint.io/52d4ba6a372a4da3ae74',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ export const GetAPi=createAsyncThunk('/user',async()=>{
      
      
         )
-        console.log(res);
+        // console.log(res);
     return res.data
 })
 export const GetSlice=createSlice({
@@ -33,7 +33,7 @@ export const GetSlice=createSlice({
         },
         [GetAPi.fulfilled]:(state,{payload})=>{
             state.loading=false
-            state.allUsers=payload
+            state.allUsers=[payload]
         },
         [GetAPi.rejected]:(state)=>{
             state.error=true

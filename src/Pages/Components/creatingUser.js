@@ -51,7 +51,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                 <form style={{ padding: "10px 100px" }}>
                     <DialogContent>
                         <TextField
-                            id="fullName"
+                            id="uname"
                             placeholder="Enter your name"
                             label="name"
                             variant="standard"
@@ -61,7 +61,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                             onChange={e => onChange(e)}
                         />
                         <TextField
-                            id="eMail"
+                            id="email"
                             placeholder="Enter your eMail"
                             label="E-mail"
                             variant="standard"

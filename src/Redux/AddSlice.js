@@ -21,6 +21,7 @@ export const AddSlice=createSlice({
         },
         [AddAPi.rejected]:(state)=>{
             state.error=true
+            state.loading=false
         }
     }
 })

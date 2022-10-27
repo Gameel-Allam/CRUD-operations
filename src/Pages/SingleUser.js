@@ -4,10 +4,9 @@ import {useParams } from 'react-router-dom'
 
 const Singleuser = () => {
     const {userId}=useParams();
-
-    console.log(userId)
-    const allusers=useSelector(state=>state.usersData.allusers)
-    console.log(allusers)
+    let allUsers=useSelector(state=>state.usersData.allUsers)
+    let spacificUser= allUsers.filter((el)=>el.id===userId)
+    console.log(userId,spacificUser)
   return (
     <div>
         {userId}
