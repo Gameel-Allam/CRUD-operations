@@ -2,15 +2,15 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 export const UpdataAPi=createAsyncThunk('/user',async(data)=>{
     console.log(data.email,"from update redux")
-    let res=await axios(
-        {
-            method: 'put',
-            url: `http://localhost:8080/user/${data.id}`,
-            headers: { 
-              'Content-Type': 'text/plain'
-            },
-            data : data.email
-          }
+    let res=await axios({
+        
+  method: 'put',
+  url: `http://localhost:8080/user/${data.id}`,
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+}
     )
     return res.data
 })
