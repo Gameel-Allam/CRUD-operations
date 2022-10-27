@@ -48,7 +48,7 @@ const Users = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {tempData.map((item,ind) => (
+                        {DataOfUsers.map((item,ind) => (
                           <tr key={ind}>
                             <td>{item.id}</td>
                             <td>{item.uname}</td>
