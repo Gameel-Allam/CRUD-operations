@@ -2,7 +2,16 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 export const AddAPi=createAsyncThunk('/user',async(data)=>{
     console.log(data,"reached to redux")
-    let res=await axios.post(  'http://localhost:8080/user',data )
+    let res=await axios(
+        {
+  method: 'post',
+  url: 'http://localhost:8080/user',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+}
+     )
     return res.data
 })
 export const AddSlice=createSlice({
