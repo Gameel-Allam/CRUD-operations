@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 import { AddAPi } from './AddSlice';
 import { DeleteAPi } from './DeleteSlice';
+import { UpdataAPi } from './UpdateSlice';
 // import { AddAPi } from './AddSlice';
 // import { DeleteAPi } from './DeleteSlice';
 // import { UpdataAPi } from './UpdateSlice';
@@ -59,17 +60,17 @@ export const GetSlice=createSlice({
         },
         [DeleteAPi.rejected]:(state)=>{
             state.error=true
+        },
+        [UpdataAPi.pending]:(state)=>{
+            state.loading=true
+        },
+        [UpdataAPi.fulfilled]:(state,{payload})=>{
+            state.loading=false
+            state.allUsers=payload
+        },
+        [UpdataAPi.rejected]:(state)=>{
+            state.error=true
         }
-        // [UpdataAPi.pending]:(state)=>{
-        //     state.loading=true
-        // },
-        // [UpdataAPi.fulfilled]:(state,{payload})=>{
-        //     state.loading=false
-        //     state.allUsers=payload
-        // },
-        // [UpdataAPi.rejected]:(state)=>{
-        //     state.error=true
-        // }
     }
 })
 export default GetSlice.reducer;

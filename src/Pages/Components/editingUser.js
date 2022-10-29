@@ -25,7 +25,7 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
         else {
             // the data of user after edit
             
-            dispatch(UpdataAPi({email:newUser.email,id:newUser.id}));
+            dispatch(UpdataAPi(newUser));
             console.log(newUser);
             handleClose();
         }
