@@ -10,11 +10,12 @@ import Paper from '@mui/material/Paper';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { useDispatch } from "react-redux";
 import { AddAPi } from "../../Redux/AddSlice";
+import { useNavigate } from "react-router-dom";
 
 
 export default function AddingDialog({ openDialog, handleClose, data, onChange }) {
     const dispatch=useDispatch();
-    
+    const router=useNavigate()
     const onSubmit = (e) => {
         if (data.uname === "" || data.age === (undefined || "" || '') || data.phone === "" || data.email === "")
             e.preventDefault();
@@ -27,6 +28,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
             data.phone = "";
             data.email = "";
             handleClose();
+            router('/users')
         }
 
     }

@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
+import { AddAPi } from './AddSlice';
+import { DeleteAPi } from './DeleteSlice';
 // import { AddAPi } from './AddSlice';
 // import { DeleteAPi } from './DeleteSlice';
 // import { UpdataAPi } from './UpdateSlice';
@@ -7,7 +9,7 @@ export const GetAPi=createAsyncThunk('/user',async()=>{
     let res=await axios(
         {
             method: 'get',
-            url: 'https://api.npoint.io/52d4ba6a372a4da3ae74',
+            url: 'http://localhost:8080/user',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -17,7 +19,6 @@ export const GetAPi=createAsyncThunk('/user',async()=>{
      
      
         )
-        // console.log(res);
     return res.data
 })
 export const GetSlice=createSlice({
@@ -33,32 +34,32 @@ export const GetSlice=createSlice({
         },
         [GetAPi.fulfilled]:(state,{payload})=>{
             state.loading=false
-            state.allUsers=[payload]
+            state.allUsers=payload
         },
         [GetAPi.rejected]:(state)=>{
             state.error=true
             console.log(`error`)
+        },
+        [AddAPi.pending]:(state)=>{
+            state.loading=true
+        },
+        [AddAPi.fulfilled]:(state,{payload})=>{
+            state.loading=false
+            state.allUsers=payload
+        },
+        [AddAPi.rejected]:(state)=>{
+            state.error=true
+        },
+        [DeleteAPi.pending]:(state)=>{
+            state.loading=true
+        },
+        [DeleteAPi.fulfilled]:(state,{payload})=>{
+            state.loading=false
+            state.allUsers=payload
+        },
+        [DeleteAPi.rejected]:(state)=>{
+            state.error=true
         }
-        // [AddAPi.pending]:(state)=>{
-        //     state.loading=true
-        // },
-        // [AddAPi.fulfilled]:(state,{payload})=>{
-        //     state.loading=false
-        //     state.allUsers=payload
-        // },
-        // [AddAPi.rejected]:(state)=>{
-        //     state.error=true
-        // },
-        // [DeleteAPi.pending]:(state)=>{
-        //     state.loading=true
-        // },
-        // [DeleteAPi.fulfilled]:(state,{payload})=>{
-        //     state.loading=false
-        //     state.allUsers=payload
-        // },
-        // [DeleteAPi.rejected]:(state)=>{
-        //     state.error=true
-        // },
         // [UpdataAPi.pending]:(state)=>{
         //     state.loading=true
         // },

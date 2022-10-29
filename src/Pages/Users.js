@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import "../styles/main.css"
 import OperationsBtns from './Components/OperationsBtns'
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAPi } from '../Redux/GetSlice';
 import AddBtn from './Components/AddBtn';
 const Users = () => {
-  // data of all users
-  let DataOfUsers = useSelector(state => state.usersData.allUsers)
-  let loading = useSelector(state => state.usersData.loading)
-  const dispatch=useDispatch()
-  // const [tempData, setTempdata] = useState()
-  useEffect(()=>{
-    dispatch(GetAPi())
-  },[dispatch])
-  // dispatch(GetAPi())
-console.log("Data from get",DataOfUsers)
+      // data of all users
+      let DataOfUsers = useSelector(state => state.usersData.allUsers)
+      let loading = useSelector(state => state.usersData.loading)
+      const dispatch=useDispatch()
+      // const [tempData, setTempdata] = useState()
+      useEffect(()=>{
+        dispatch(GetAPi())
+      },[dispatch])
+      // dispatch(GetAPi())
+      console.log("Data from get",DataOfUsers)
   return (
     <>
     {loading?"loading":
@@ -51,16 +51,15 @@ console.log("Data from get",DataOfUsers)
                         </tr>
                       </thead>
                       <tbody>
-                        {DataOfUsers.map((item,ind) => (
+                        {DataOfUsers.length!==0?DataOfUsers.map((item,ind) => (
                           <tr key={ind}>
-                            {console.log(item.uname,"dsadasd")}
                             <td>{item.id}</td>
                             <td>{item.uname}</td>
                             <td>{item.email}</td>
                             <td>{item.phone}</td>
                             <td>{item.age}</td>
                             <td><OperationsBtns currentUser={item}/></td>
-                          </tr>))}
+                          </tr>)):''}
                       </tbody>
                     </table>
                 </div>
