@@ -13,18 +13,27 @@ import { UpdataAPi } from "../../Redux/UpdateSlice";
 import { json } from "react-router-dom";
 
 export default function EditingDialog({ openDialog, handleClose, userData }) {
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     const [newUser, setNewUSer] = React.useState(userData);
     const onChange = (e) => {
         const { value, id } = e.target;
         setNewUSer({ ...newUser, [id]: value });
     }
-    const onSubmit = (e) => {
+    const validate = () => {
         if (newUser.uname === "" || newUser.age === (undefined || "" || '') || newUser.phone === "" || newUser.email === "")
+            return false
+        else if (!newUser.phone.startsWith('+20') || !(/\d{10}/.test(parseInt(newUser.phone.substring(3)))))
+            return false
+        else if (!(/.+@.+.(com|org)/.test(newUser.email)))
+            return false;
+        return true
+    }
+    const onSubmit = (e) => {
+        if (validate())
             e.preventDefault();
         else {
             // the data of user after edit
-            
+
             dispatch(UpdataAPi(newUser));
             console.log(newUser);
             handleClose();
@@ -51,6 +60,7 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
                 <form style={{ padding: "10px 100px" }}>
                     <DialogContent>
                         <TextField
+                            disabled
                             id="uname"
                             placeholder="Enter your name"
                             label="Full-Name"
@@ -71,6 +81,7 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
                             onChange={e => onChange(e)}
                         />
                         <TextField
+                            disabled
                             id="phone"
                             placeholder="Enter your phone"
                             label="Phone"
@@ -83,6 +94,7 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
                         <Grid container>
                             <Grid item xs={6}>
                                 <TextField
+                                    disabled
                                     id="age"
                                     placeholder="Enter your age"
                                     label="Age"
