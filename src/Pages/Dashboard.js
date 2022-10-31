@@ -1,9 +1,10 @@
 import React from 'react'
+import Splash from './Components/Splash'
 
 const Dashboard = () => {
   return (
     <div>
-        Dashboard Underbuilding
+        <Splash></Splash>
     </div>
   )
 }
