@@ -17,7 +17,7 @@ const Users = () => {
       console.log("Data from get",DataOfUsers)
   return (
     <>
-    {loading?"loading":
+    {!loading?"loading":
     <>
       <AddBtn />
       <div className="row">

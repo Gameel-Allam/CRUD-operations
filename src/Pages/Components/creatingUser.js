@@ -14,10 +14,19 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function AddingDialog({ openDialog, handleClose, data, onChange }) {
-    const dispatch=useDispatch();
-    const router=useNavigate()
-    const onSubmit = (e) => {
+    const dispatch = useDispatch();
+    const router = useNavigate()
+    const validate = () => {
         if (data.uname === "" || data.age === (undefined || "" || '') || data.phone === "" || data.email === "")
+            return false
+        else if (!data.phone.startsWith('+20') || !(/\d{10}/.test(parseInt(data.phone.substring(3)))))
+            return false
+        else if (!(/.+@.+.(com|org)/.test(data.email)))
+            return false;
+        return true
+    }
+    const onSubmit = (e) => {
+        if (!validate())
             e.preventDefault();
         else {
             // data of new user
@@ -74,7 +83,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                         />
                         <TextField
                             id="phone"
-                            placeholder="Enter your phone"
+                            placeholder="Enter your phone as +20**********"
                             label="Phone"
                             variant="standard"
                             margin="normal"
@@ -94,6 +103,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
                                     fullWidth
                                     defaultValue={data.age}
                                     onChange={e => onChange(e)}
+                                    inputProps={{ min: 16, max: 80 }}
                                 />
                             </Grid>
                         </Grid>
