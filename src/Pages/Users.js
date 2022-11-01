@@ -4,7 +4,7 @@ import OperationsBtns from './Components/OperationsBtns'
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAPi } from '../Redux/GetSlice';
 import AddBtn from './Components/AddBtn';
-import Dashboard from './Dashboard';
+import Splash from './Components/Splash';
 const Users = () => {
       // data of all users
       let DataOfUsers = useSelector(state => state.usersData.allUsers)
@@ -19,7 +19,7 @@ const Users = () => {
   return (
     <>
     {/* {!loading?"loading": */}
-    {loading?<Dashboard/>:
+    {loading?<Splash/>:
     <>
       <AddBtn />
       <div className="row">
