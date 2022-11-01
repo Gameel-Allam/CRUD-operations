@@ -4,6 +4,7 @@ import OperationsBtns from './Components/OperationsBtns'
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAPi } from '../Redux/GetSlice';
 import AddBtn from './Components/AddBtn';
+import Dashboard from './Dashboard';
 const Users = () => {
       // data of all users
       let DataOfUsers = useSelector(state => state.usersData.allUsers)
@@ -17,7 +18,8 @@ const Users = () => {
       console.log("Data from get",DataOfUsers)
   return (
     <>
-    {!loading?"loading":
+    {/* {!loading?"loading": */}
+    {loading?<Dashboard/>:
     <>
       <AddBtn />
       <div className="row">
