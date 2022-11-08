@@ -29,7 +29,8 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
         return true
     }
     const onSubmit = (e) => {
-        if (validate())
+        console.log(newUser);
+        if (!validate())
             e.preventDefault();
         else {
             // the data of user after edit

@@ -19,7 +19,6 @@ const dispatch=useDispatch();
     setOpenDialog(false);
   };
   function confirmDelete(id) {
-    dispatch(DeleteAPi({id:id}))
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover user!",
@@ -29,6 +28,7 @@ const dispatch=useDispatch();
     })
       .then((willDelete) => {
         if (willDelete) {
+          dispatch(DeleteAPi({id:id}))
           swal("Poof! Your user has been completely deleted!", {
             icon: "success",
           });

@@ -53,9 +53,9 @@ const Users = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {DataOfUsers.length!==0?DataOfUsers.map((item,ind) => (
-                          <tr key={ind}>
-                            <td>{item.id}</td>
+                        {DataOfUsers.length!==0?DataOfUsers.map((item,index) => (
+                          <tr key={index}>
+                            <td>{index+1}</td>
                             <td>{item.uname}</td>
                             <td>{item.email}</td>
                             <td>{item.phone}</td>
