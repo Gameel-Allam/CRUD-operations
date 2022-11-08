@@ -10,7 +10,6 @@ import Paper from '@mui/material/Paper';
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from "react-redux";
 import { UpdataAPi } from "../../Redux/UpdateSlice";
-import { json } from "react-router-dom";
 
 export default function EditingDialog({ openDialog, handleClose, userData }) {
     const dispatch = useDispatch();
