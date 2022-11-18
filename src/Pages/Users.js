@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "../styles/main.css"
 import OperationsBtns from './Components/OperationsBtns'
 import { useDispatch, useSelector } from 'react-redux';
-import { GetAPi } from '../Redux/GetSlice';
+import { GetAPi } from '../Redux/Crud/GetSlice';
 import AddBtn from './Components/AddBtn';
 import Splash from './Components/Splash';
 const Users = () => {

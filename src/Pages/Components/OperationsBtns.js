@@ -5,7 +5,7 @@ import swal from 'sweetalert'
 import EditingDialog from './editingUser'
 import {useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { DeleteAPi } from '../../Redux/DeleteSlice'
+import { DeleteAPi } from '../../Redux/Crud/DeleteSlice'
 
 const OperationsBtns = (currentUser) => {
 const dispatch=useDispatch();

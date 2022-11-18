@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import GetSlice from "./GetSlice";
+import GetSlice from "./Crud/GetSlice";
 import RegSlice from "./VerifyForm/ValidRegisterSlice"
 import LoginSlice from "./VerifyForm/VaildLoignSlice";
 import ForgetSlice from "./VerifyForm/ValidForgetPassword";

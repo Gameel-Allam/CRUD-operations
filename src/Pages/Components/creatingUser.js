@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { useDispatch } from "react-redux";
-import { AddAPi } from "../../Redux/AddSlice";
+import { AddAPi } from "../../Redux/Crud/AddSlice";
 import { useNavigate } from "react-router-dom";
 
 

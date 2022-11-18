@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from "react-redux";
-import { UpdataAPi } from "../../Redux/UpdateSlice";
+import { UpdataAPi } from "../../Redux/Crud/UpdateSlice";
 
 export default function EditingDialog({ openDialog, handleClose, userData }) {
     const dispatch = useDispatch();
