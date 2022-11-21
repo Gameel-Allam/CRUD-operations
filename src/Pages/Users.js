@@ -1,19 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../styles/main.css"
 import OperationsBtns from './Components/OperationsBtns'
 import { useDispatch, useSelector } from 'react-redux';
 import { GetAPi } from '../Redux/Crud/GetSlice';
 import AddBtn from './Components/AddBtn';
 import Splash from './Components/Splash';
+import { searchAbout } from '../Redux/Crud/SearchSlice';
 const Users = () => {
       // data of all users
       let DataOfUsers = useSelector(state => state.usersData.allUsers)
       let loading = useSelector(state => state.usersData.loading)
+      let [searchValue,setSearchValue]=useState("")
+      // console.log(searchValue)
       const dispatch=useDispatch()
       // const [tempData, setTempdata] = useState()
       useEffect(()=>{
         dispatch(GetAPi())
       },[dispatch])
+function searchFn(e){
+  if(e.keyCode === 13){
+    console.log(e.target.value)
+    dispatch(searchAbout(e.target.value))
+  }
+}
+useEffect(()=>{
+  let dobounceSearch=setTimeout(()=>{
+    if(searchValue){
+      dispatch(searchAbout(searchValue))
+    }
+  },1000)
+  return ()=>{
+    clearTimeout(dobounceSearch)
+  }
+},[searchValue])
       // dispatch(GetAPi())
       console.log("Data from get",DataOfUsers)
   return (
@@ -32,7 +51,7 @@ const Users = () => {
                         </div>
                         <div className="col-sm-9 col-xs-12 text-right">
                             <div className="btn_group">
-                                <input type="text" className="form-control m-auto" placeholder="Search"/>
+                                <input type="search" className="form-control m-auto" placeholder="Email , Name , Phone" onChange={(e)=>setSearchValue(e.target.value)} onKeyDown={(e)=>searchFn(e)} Value={searchValue}/>
                                 {/* <button className="btn btn-default" title="Reload"><i className="fa fa-sync-alt"></i></button>
                                 <button className="btn btn-default" title="Pdf"><i className="fa fa-file-pdf"></i></button>
                                 <button className="btn btn-default" title="Excel"><i className="fas fa-file-excel"></i></button> */}

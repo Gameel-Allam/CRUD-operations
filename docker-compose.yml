@@ -1,0 +1,13 @@
+version: '3'
+services:
+  newfrontendcontainer:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - REACT_APP_NAME=crud
+      - CHOKIDAR_USEPOLLING=true

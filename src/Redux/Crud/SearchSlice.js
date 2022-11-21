@@ -3,16 +3,13 @@ import axios from "axios";
 
 export const searchAbout=createAsyncThunk('/search',async(data)=>{
     console.log(data,"data From redux search")
-    let res=axios({
-        method:'post',
-        url:'',
-        headers:{
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        },
+    let res=await axios({
+        method:'get',
+        url: `http://localhost:8080/user/searchby/${data}`,
+        headers:{},
         data:data
     })
+    console.log(res.data)
     return res.data
 })
 export const searchSlice=createSlice({

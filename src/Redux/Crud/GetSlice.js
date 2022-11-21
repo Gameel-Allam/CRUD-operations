@@ -77,6 +77,7 @@ export const GetSlice=createSlice({
         },
         [searchAbout.fulfilled]:(state,{payload})=>{
             state.loading=false;
+            console.log("payload search",payload)
             state.allUsers=payload;
         },
         [searchAbout.rejected]:(state)=>{
