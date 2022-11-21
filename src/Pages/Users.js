@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "../styles/main.css"
 import OperationsBtns from './Components/OperationsBtns'
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,8 @@ const Users = () => {
       let DataOfUsers = useSelector(state => state.usersData.allUsers)
       let loading = useSelector(state => state.usersData.loading)
       let [searchValue,setSearchValue]=useState("")
+      let [focusSearch,setFocus]=useState(false)
+      let searchRef=useRef();
       // console.log(searchValue)
       const dispatch=useDispatch()
       // const [tempData, setTempdata] = useState()
@@ -24,6 +26,8 @@ function searchFn(e){
   }
 }
 useEffect(()=>{
+  // searchRef.current.focus();
+  setFocus(true)
   let dobounceSearch=setTimeout(()=>{
     if(searchValue){
       dispatch(searchAbout(searchValue))
@@ -51,7 +55,7 @@ useEffect(()=>{
                         </div>
                         <div className="col-sm-9 col-xs-12 text-right">
                             <div className="btn_group">
-                                <input type="search" className="form-control m-auto" placeholder="Email , Name , Phone" onChange={(e)=>setSearchValue(e.target.value)} onKeyDown={(e)=>searchFn(e)} Value={searchValue}/>
+                                <input type="search" className="form-control m-auto" placeholder="Email , Name , Phone" onChange={(e)=>setSearchValue(e.target.value)} onKeyDown={(e)=>searchFn(e)} defaultValue={searchValue} ref={searchRef} autoFocus={focusSearch}/>
                                 {/* <button className="btn btn-default" title="Reload"><i className="fa fa-sync-alt"></i></button>
                                 <button className="btn btn-default" title="Pdf"><i className="fa fa-file-pdf"></i></button>
                                 <button className="btn btn-default" title="Excel"><i className="fas fa-file-excel"></i></button> */}
