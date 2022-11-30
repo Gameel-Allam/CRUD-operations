@@ -6,6 +6,7 @@ import EditingDialog from './editingUser'
 import {useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { DeleteAPi } from '../../Redux/Crud/DeleteSlice'
+import { viewFn } from '../../Redux/Crud/ViewSlice'
 
 const OperationsBtns = (currentUser) => {
 const dispatch=useDispatch();
@@ -37,9 +38,11 @@ const dispatch=useDispatch();
         }
       });
   }
+
   const router=useNavigate()
   const handleClickView=(id)=>{
     router(`/users/${id}`)
+    dispatch(viewFn(id))
   }
   return (
     <div className='d-flex flex-row justify-center align-center'>

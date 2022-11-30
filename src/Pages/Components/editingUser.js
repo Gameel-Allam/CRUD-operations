@@ -28,14 +28,14 @@ export default function EditingDialog({ openDialog, handleClose, userData }) {
         return true
     }
     const onSubmit = (e) => {
-        console.log(newUser);
+        // console.log(newUser);
         if (!validate())
             e.preventDefault();
         else {
             // the data of user after edit
 
             dispatch(UpdataAPi(newUser));
-            console.log(newUser);
+            // console.log(newUser);
             handleClose();
         }
 

@@ -1,12 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import {useParams } from 'react-router-dom'
+import { viewFn } from '../Redux/Crud/ViewSlice';
 import "../styles/main.css"
 const Singleuser = () => {
     const {userId}=useParams();
     let allUsers=useSelector(state=>state.usersData.allUsers)
-    let spacificUser= allUsers.filter((el)=>el.id==userId)
-    console.log(userId,spacificUser)
+    // let spacificUser= allUsers.filter((el)=>el.id==userId)
+    let fetchedUser=useSelector(state=>state.viewedUser.singleUser);
+    console.log(userId,fetchedUser)
+    const dispatch=useDispatch()
+    useEffect(()=>{
+      console.log("work")
+      dispatch(viewFn(userId))
+    },[dispatch])
   return (
     <div>
         <div className="page-content page-container" id="page-content">
@@ -20,7 +27,7 @@ const Singleuser = () => {
                       <div className="m-b-25">
                         <img src="https://img.icons8.com/bubbles/100/000000/user.png" className="img-radius mx-auto" alt="User-Profile-Image" />
                       </div>
-                      <h6 className="f-w-600">{spacificUser[0].uname}</h6>
+                      <h6 className="f-w-600">{fetchedUser.uname}</h6>
                       <p>Web Designer</p>
                       <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16" />
                     </div>
@@ -31,15 +38,15 @@ const Singleuser = () => {
                       <div className="row">
                         <div className="col-sm-6">
                           <p className="m-b-10 f-w-600">Email</p>
-                          <h6 className="text-muted f-w-400">{spacificUser[0].email}</h6>
+                          <h6 className="text-muted f-w-400">{fetchedUser.email}</h6>
                         </div>
                         <div className="col-sm-6">
                           <p className="m-b-10 f-w-600">Phone</p>
-                          <h6 className="text-muted f-w-400">{spacificUser[0].phone}</h6>
+                          <h6 className="text-muted f-w-400">{fetchedUser.phone}</h6>
                         </div>
                         <div className="col-sm-6 my-2">
                           <p className="m-b-10 f-w-600">Age</p>
-                          <h6 className="text-muted f-w-400">{spacificUser[0].age}</h6>
+                          <h6 className="text-muted f-w-400">{fetchedUser.age}</h6>
                         </div>
                       </div>
                       <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>

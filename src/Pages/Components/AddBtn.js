@@ -7,6 +7,7 @@ const AddBtn = () => {
 
   const onChange = (e) => {
     const { value, id } = e.target;
+    // console.log(value,"ourtarget")
     setNewUser({ ...newUser, [id]: value });
   }
 

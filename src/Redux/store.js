@@ -5,6 +5,7 @@ import LoginSlice from "./VerifyForm/VaildLoignSlice";
 import ForgetSlice from "./VerifyForm/ValidForgetPassword";
 import  getAuthorzied  from "./Autorization/AuthLogin";
 import  LogoutSlice  from "./Autorization/Logout";
+import ViewSlice from "./Crud/ViewSlice";
 
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
         forgetpass:ForgetSlice,
         authoUser:getAuthorzied,
         logout:LogoutSlice,
-        usersData:GetSlice
+        usersData:GetSlice,
+        viewedUser:ViewSlice
     }
 })

@@ -26,7 +26,7 @@ export default function AddingDialog({ openDialog, handleClose, data, onChange }
         return true
     }
     const onSubmit = (e) => {
-        console.log(data)
+        // console.log(data)
         if (!validate())
             e.preventDefault();
         else {

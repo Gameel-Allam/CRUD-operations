@@ -20,9 +20,13 @@ const Users = () => {
         dispatch(GetAPi())
       },[dispatch])
 function searchFn(e){
+  console.log(e.target.defaultValue)
   if(e.keyCode === 13){
-    console.log(e.target.value)
-    dispatch(searchAbout(e.target.value))
+    // console.log(e.target.value)
+    dispatch(searchAbout(e.target.defaultValue))
+  }if(e.keyCode===	8 && e.target.defaultValue===''){
+    console.log("hii")
+    dispatch(GetAPi())
   }
 }
 useEffect(()=>{
@@ -38,7 +42,7 @@ useEffect(()=>{
   }
 },[searchValue])
       // dispatch(GetAPi())
-      console.log("Data from get",DataOfUsers)
+      // console.log("Data from get",DataOfUsers)
   return (
     <>
     {/* {!loading?"loading": */}
@@ -55,7 +59,7 @@ useEffect(()=>{
                         </div>
                         <div className="col-sm-9 col-xs-12 text-right">
                             <div className="btn_group">
-                                <input type="search" className="form-control m-auto" placeholder="Email , Name , Phone" onChange={(e)=>setSearchValue(e.target.value)} onKeyDown={(e)=>searchFn(e)} defaultValue={searchValue} ref={searchRef} autoFocus={focusSearch}/>
+                                <input type="search" className="form-control m-auto" placeholder="Email , Name , Phone" onChange={(e)=>setSearchValue(e.target.value)} onKeyUp={(e)=>searchFn(e)} defaultValue={searchValue} ref={searchRef} autoFocus={focusSearch}/>
                                 {/* <button className="btn btn-default" title="Reload"><i className="fa fa-sync-alt"></i></button>
                                 <button className="btn btn-default" title="Pdf"><i className="fa fa-file-pdf"></i></button>
                                 <button className="btn btn-default" title="Excel"><i className="fas fa-file-excel"></i></button> */}
@@ -84,7 +88,8 @@ useEffect(()=>{
                             <td>{item.phone}</td>
                             <td>{item.age}</td>
                             <td><OperationsBtns currentUser={item}/></td>
-                          </tr>)):''}
+                          </tr>)):null
+                          }
                       </tbody>
                     </table>
                 </div>
