@@ -1,11 +1,11 @@
 version: "3"
 services:
-  front-development-container:
+  front-prod-container:
     build:
       context: .
-      dockerfile: dockerfile.dev
+      dockerfile: dockerfile.prod
     ports:
-      - "3000:3000"
+      - "3001:80"
     # volumes:
     #   - ./src:/app/src
     # environment:

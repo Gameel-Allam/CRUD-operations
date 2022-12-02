@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import AddingDialog from './creatingUser';
 const AddBtn = () => {
   const [newUser, setNewUser] = React.useState({ uname: "",email:"", phone: "", age: "" });
-
+  let createdUser=useMemo(()=>{return newUser},[newUser])
   const onChange = (e) => {
     const { value, id } = e.target;
     // console.log(value,"ourtarget")
@@ -13,13 +13,13 @@ const AddBtn = () => {
 
   const [openDialog, setOpenDialog] = React.useState(false);
   
-  const handleClickOpen = () => {
+  const handleClickOpen = useCallback(() => {
     setOpenDialog(true);
-  };
+  },[]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpenDialog(false);
-  };
+  },[]);
   return (
     <>
       <div className='Add__oper my-4'>
@@ -27,7 +27,7 @@ const AddBtn = () => {
           <FontAwesomeIcon icon={faPlus} />
         </span>
         </button>
-        <AddingDialog openDialog={openDialog} handleClose={handleClose} data={newUser} onChange={onChange} />
+        <AddingDialog openDialog={openDialog} handleClose={handleClose} data={createdUser} onChange={onChange} />
       </div>
     </>
   )

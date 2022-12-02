@@ -5,7 +5,7 @@ import { viewFn } from '../Redux/Crud/ViewSlice';
 import "../styles/main.css"
 const Singleuser = () => {
     const {userId}=useParams();
-    let allUsers=useSelector(state=>state.usersData.allUsers)
+    // let allUsers=useSelector(state=>state.usersData.allUsers)
     // let spacificUser= allUsers.filter((el)=>el.id==userId)
     let fetchedUser=useSelector(state=>state.viewedUser.singleUser);
     console.log(userId,fetchedUser)
@@ -13,7 +13,7 @@ const Singleuser = () => {
     useEffect(()=>{
       console.log("work")
       dispatch(viewFn(userId))
-    },[dispatch])
+    },[dispatch,userId])
   return (
     <div>
         <div className="page-content page-container" id="page-content">
@@ -25,7 +25,7 @@ const Singleuser = () => {
                   <div className="col-sm-4 bg-c-lite-green user-profile">
                     <div className="card-block text-center text-white">
                       <div className="m-b-25">
-                        <img src="https://img.icons8.com/bubbles/100/000000/user.png" className="img-radius mx-auto" alt="User-Profile-Image" />
+                        <img src="https://img.icons8.com/bubbles/100/000000/user.png" className="img-radius mx-auto" alt="profile imgae" />
                       </div>
                       <h6 className="f-w-600">{fetchedUser.uname}</h6>
                       <p>Web Designer</p>
@@ -60,11 +60,11 @@ const Singleuser = () => {
                           <h6 className="text-muted f-w-400">Dinoter husainm</h6>
                         </div>
                       </div>
-                      <ul className="social-link list-unstyled m-t-40 m-b-10">
+                      {/* <ul className="social-link list-unstyled m-t-40 m-b-10">
                         <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title data-original-title="facebook" data-abc="true"><i className="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true" /></a></li>
                         <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title data-original-title="twitter" data-abc="true"><i className="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true" /></a></li>
                         <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title data-original-title="instagram" data-abc="true"><i className="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true" /></a></li>
-                      </ul>
+                      </ul> */}
                     </div>
                   </div>
                 </div>

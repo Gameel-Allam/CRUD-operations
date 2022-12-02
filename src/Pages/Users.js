@@ -40,12 +40,11 @@ useEffect(()=>{
   return ()=>{
     clearTimeout(dobounceSearch)
   }
-},[searchValue])
+},[searchValue,dispatch])
       // dispatch(GetAPi())
       // console.log("Data from get",DataOfUsers)
   return (
     <>
-    {/* {!loading?"loading": */}
     {loading?<Splash/>:
     <>
       <AddBtn />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenSquare, faTrash,faUser } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert'
@@ -12,13 +12,13 @@ const OperationsBtns = (currentUser) => {
 const dispatch=useDispatch();
   const [openDialog, setOpenDialog] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = useCallback(() => {
     setOpenDialog(true);
-  };
+  },[]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpenDialog(false);
-  };
+  },[]);
   function confirmDelete(id) {
     swal({
       title: "Are you sure?",

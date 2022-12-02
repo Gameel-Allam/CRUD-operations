@@ -7,7 +7,7 @@ export const searchAbout=createAsyncThunk('/search',async(data)=>{
     console.log(data,"data From redux search")
     let res=await axios({
         method:'get',
-        url: `${data!=''?URL:allusers}`,
+        url: `${data!==''?URL:allusers}`,
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
